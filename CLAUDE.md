@@ -15,7 +15,11 @@ Full structured profile: `.claude/skills/job-application-assistant/01-candidate-
 ### Identity
 - **Name:** Omar Martinosa
 - **Location:** Seattle, WA, United States (no location constraint: remote, hybrid, onsite Seattle, and relocation all acceptable)
-- **Languages:** English (native/bilingual), Spanish (native/bilingual)
+- **Languages:**
+  | Language | Level |
+  |----------|-------|
+  | English | native/bilingual |
+  | Spanish | native/bilingual |
 - **CV language:** English
 - **Status:** Employed - Engineering Manager, JPMorgan Chase
 - **LinkedIn headline:** "Engineering Lead | Building Scalable and User-Centric Enterprise Applications"
@@ -81,6 +85,8 @@ No formal assessment on file. Traits below are inferred from LinkedIn and CV tex
 - Not a closed list. These get a boost during triage; strong postings elsewhere still count.
 
 ### Deal-breakers
+<!-- Hard constraints on job search. Language requirements are handled separately and
+automatically from your Languages table above - don't duplicate them here. -->
 - Employers that ban or heavily restrict AI coding tools (Claude Code, Copilot, etc.)
 - Roles dominated by on-call rotation or production support
 - Compensation below current. No numeric floor recorded; low-looking ranges get flagged, not auto-rejected.

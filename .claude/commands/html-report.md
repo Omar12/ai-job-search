@@ -17,16 +17,24 @@ Create `reports/` if it does not exist.
 Read in parallel:
 
 1. **`job_search_tracker.csv`** — the primary source. Parse every row into a record with fields:
-   `date`, `company`, `sector`, `role`, `role_type`, `channel`, `status`, `contact_person`, `fit_rating`, `notes`, `cv_file`, `cover_letter_file`, `source`
+   `date`, `company`, `sector`, `role`, `role_type`, `channel`, `status`, `contact_person`, `fit_rating`, `notes`, `cv_file`, `cover_letter_file`, `source`, `deadline`
+
+   Rows written before `deadline` existed have thirteen fields and no fourteenth value. Treat the missing field as empty - never drop the row, and never infer a deadline from its `date`.
 
 2. **`documents/applications/*/outcome.md`** — for each resolved application, read the outcome file to get the exact interview stages reached (the checkboxes) and any notes. Merge this into the matching tracker row by company+role fuzzy match (lowercase, ignore punctuation). If an archive exists for a row but there is no match, attach it as extra context anyway.
 
-Status normalisation — map tracker values to five canonical buckets before computing stats:
+Status normalisation — map tracker values to six canonical buckets before computing stats:
+- `drafted` → **Drafted** (documents written by `/apply`, not yet submitted)
 - `applied` → **Active** (resume submitted, no further signal)
 - `interview` → **Interview**
 - `offer` → **Offer**
 - `hired` → **Hired**
-- `rejected` / `no_response` / `no response` / `offer_declined` / `interview_only` / `withdrawn` → **Rejected/Closed**
+- `rejected` / `no_response` / `no response` / `offer_declined` / `offer declined` / `withdrawn` → **Rejected/Closed**
+- anything else → **Rejected/Closed**, and name the unrecognised value once in the status breakdown — matching is case-insensitive
+
+   The bucket map tolerates the legacy space spellings on read so nothing written before
+   the canonical forms were locked drops out of the stats; the **Tracker status vocabulary**
+   in `/outcome` is the authoritative set.
 
 ---
 
@@ -34,10 +42,12 @@ Status normalisation — map tracker values to five canonical buckets before com
 
 From the normalised data compute:
 
+**Drafted rows are excluded from every statistic below** — they were never submitted. Report the Drafted count on its own, and include it only in the status breakdown.
+
 - **Total applications**
 - **By status bucket:** count per bucket
 - **By sector:** count per unique sector value
-- **By channel:** online vs referral vs other
+- **By channel:** portal vs online vs referral vs other
 - **By year/season:** group by the `date` field (which may be a year like `2025` or a full date)
 - **Funnel rates:** what % progressed past resume screen (reached Interview or beyond)
 - **Rejection rate:** Rejected/Closed ÷ Total with a resolved status (exclude Active)
@@ -55,10 +65,10 @@ Write a single self-contained HTML file. All CSS is inline in a `<style>` block.
 ```
 ┌─────────────────────────────────────────────┐
 │  🔍 Job Search Dashboard    Generated: DATE  │
-├──────┬──────┬──────┬──────┬──────────────────┤
-│Total │Active│Inter-│Offer │Rejected/Closed   │  ← stat cards
-│  N   │  N   │view N│  N   │       N          │
-├──────┴──────┴──────┴──────┴──────────────────┤
+├──────┬──────┬──────┬──────┬──────┬───────────┤
+│Sent  │Draft │Active│Inter-│Offer │Rejected/  │  ← stat cards
+│  N   │  N   │  N   │view N│  N   │Closed   N │
+├──────┴──────┴──────┴──────┴──────┴───────────┤
 │  Status breakdown (doughnut) │ By sector (bar)│  ← charts row
 ├─────────────────────────────────────────────  ┤
 │  By channel (bar)  │  Funnel (horizontal bar) │  ← charts row
@@ -72,6 +82,7 @@ Write a single self-contained HTML file. All CSS is inline in a `<style>` block.
 ### Design spec
 
 - **Colour palette:** CSS custom properties. Status colours:
+  - Drafted: `#64748b` (slate)
   - Active: `#3b82f6` (blue)
   - Interview: `#f59e0b` (amber)
   - Offer: `#8b5cf6` (purple)
@@ -101,7 +112,7 @@ Build each chart as a hand-written `<svg>` element: compute bar lengths/doughnut
 
 ### Table: columns to include
 
-`Date` · `Company` · `Role` · `Sector` · `Channel` · `Status` · `Notes` (truncated to 80 chars with `title` tooltip for full text) · `Source` (link or `—`)
+`Date` · `Deadline` · `Company` · `Role` · `Sector` · `Channel` · `Status` · `Notes` (truncated to 80 chars with `title` tooltip for full text) · `Source` (link or `—`)
 
 Columns with only empty values across all rows may be omitted.
 
@@ -118,11 +129,11 @@ Then present:
 > Open it in any browser — no server needed.
 >
 > **Summary:**
-> - Total applications: N
+> - Applications sent: N · drafted, not yet sent: N
 > - Active: N · Interview: N · Hired: N · Rejected/Closed: N
 > - Funnel: N% progressed past resume screen
 >
-> Re-run `/html-report` any time after adding new entries via `/outcome` to refresh the dashboard.
+> Re-run `/html-report` any time after adding new entries via `/apply` or `/outcome` to refresh the dashboard.
 
 ---
 

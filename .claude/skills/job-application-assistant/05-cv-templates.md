@@ -1,5 +1,5 @@
 ---
-framework_version: 1.3.0
+framework_version: 1.4.1
 ---
 
 # CV Templates and Tailoring Guide
@@ -29,28 +29,42 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
 \moderncvstyle{banking}
 \moderncvcolor{blue}
 
-% Force both first and last name AND section headings to render in moderncv
-% blue (color1). Default banking on lualatex+MiKTeX leaves these black, which
-% looks inconsistent with the rest of the blue accent scheme.
-\renewcommand*{\firstnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
-\renewcommand*{\lastnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
+% Force the name and section headings to render in moderncv blue (color1).
+% Default banking leaves them black: moderncvstylebanking.sty's \colorlet
+% copies (not aliases) the pre-scheme accent colour, so the name colours are
+% frozen before \moderncvcolor runs. Re-let them after. \namefont is the hook
+% every name-style macro routes through, so this also works on moderncv 2.3.1
+% (Debian/Ubuntu apt), which has no \firstnamestyle/\lastnamestyle at all.
+\renewcommand*{\namefont}{\fontsize{34}{36}\bfseries\upshape}
+\colorlet{firstnamecolor}{color1}
+\colorlet{lastnamecolor}{color1}
+\colorlet{namecolor}{color1}
 \renewcommand*{\sectionstyle}[1]{{\sectionfont\color{color1}#1}}
 
 \usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-\hypersetup{
+% moderncv loads hyperref itself in an \AtEndPreamble hook, so \hypersetup
+% must go in an \AtEndPreamble of our own: on moderncv < 2.4 a top-level
+% \usepackage{hyperref} clashes with the class's own
+% \RequirePackage[unicode]{hyperref}. From 2.4.0 the class passes its options
+% through \PassOptionsToPackage instead, which is what removes that clash.
+\AtEndPreamble{\hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
     pdftitle={[YOUR_NAME] - CV},
-    pdfpagemode=FullScreen,
-}
+    % Keep pdfpagemode=UseNone: this block runs after moderncv's own
+    % \AtEndPreamble (moderncv.cls sets pdfpagemode there), so a FullScreen
+    % value here would win and open every CV in fullscreen presentation mode.
+    pdfpagemode=UseNone,
+}}
 \usepackage[scale=0.77]{geometry}
 \usepackage{import}
 
 % Personal data
 \name{[FIRST_NAME]}{[LAST_NAME]}
+% If you have no address to list, DELETE this whole line. \address{}{}{} fails
+% with "There's no line here to end" on every moderncv version.
 \address{[YOUR_ADDRESS]}{}{}
 \phone[mobile]{[YOUR_PHONE]}
 \email{[YOUR_EMAIL]}
@@ -72,7 +86,7 @@ Expected output: `Output written on main_<company>_<role>.pdf (2 pages, ...)`. A
 
 ### Color overrides
 
-The three `\renewcommand*` lines in the preamble are required on lualatex+MiKTeX. Without them the firstname, lastname, and section headings render in black even though `\moderncvcolor{blue}` is set, which looks inconsistent with the rest of the blue accent scheme (links, bullet markers, contact icons). The override forces all three to use `color1` (moderncv's accent colour, which becomes blue under `\moderncvcolor{blue}`). Both names render bold; if you prefer the firstname in regular weight, change the firstnamestyle override from `\bfseries` to `\mdseries`. Don't drop the override - on most modern installs the defaults render visibly wrong.
+The `\renewcommand*` on `\namefont` and the three `\colorlet` lines in the preamble are required on lualatex+MiKTeX. Without them the name and section headings render in black even though `\moderncvcolor{blue}` is set, which looks inconsistent with the rest of the blue accent scheme (links, bullet markers, contact icons). The cause: `moderncvstylebanking.sty` defines the name colours with `\colorlet`, which *copies* the accent colour as it is before the scheme is applied, so the name colours are frozen to the pre-scheme value; re-assigning them with `\colorlet` after `\moderncvcolor{blue}` (as the preamble does) re-pins them to `color1`. `\namefont` is the shared hook every name-style macro routes through, so the block is version-agnostic - including moderncv 2.3.1 from Debian/Ubuntu apt, which has no `\firstnamestyle`/`\lastnamestyle` at all. Both names render bold; if you prefer regular weight, change `\bfseries` to `\mdseries` in the `\namefont` line (the weight now lives there, so it applies to the whole name). Don't drop the overrides - on most modern installs the defaults render visibly wrong.
 
 ### Spacing inside itemize lists (important)
 
@@ -244,6 +258,31 @@ What to check in the extraction:
 - **No garbled output.** `(cid:NNN)` markers or `�` characters mean a font is embedded without a Unicode mapping - an ATS sees the same garbage. This shows up with unusual fonts in custom templates, not with the stock moderncv setup under lualatex.
 - **Reading order.** The stock banking style is single-column, so extraction order matches visual order. Custom templates (via `/add-template`) with sidebars or multi-column layouts can interleave unrelated lines; if extraction order is scrambled, the user is trading ATS compatibility for looks and should be told.
 - **Keyword coverage.** Match the posting's required/preferred terms against the extracted text, in the posting's language. Prefer the posting's exact term over a synonym when it is truthfully applicable - ATS matching is often literal. Never add a keyword the profile does not support.
+
+### Date fields must be ASCII ranges (confirmed ATS import failure)
+
+This one is worth knowing about because it fails **silently**. A CV that passes every other check in this section - clean extraction, no `(cid:)` markers, contact details intact, correct reading order - can still have its dates dropped on import. In a real Workday resume import, a CV built from this template lost the end date of a short contract role and failed to import **any** education entry at all, forcing manual re-entry. Nothing about the PDF or its text layer looked wrong.
+
+Two independent causes, both easy to avoid:
+
+1. **`--` in a `\cventry` date renders as an en-dash (U+2013), not a hyphen.** LaTeX ligatures `--` (two ASCII hyphens, U+002D) into a single en-dash glyph, so `2016--2024` reaches the PDF text layer as `2016<U+2013>2024`. Many parsers split date ranges only on an ASCII hyphen and see no range at all. Write the date argument with a **single hyphen**:
+
+   ```latex
+   \item{\cventry{2016-2024}{Role Title}{Organization}{Location}{}{...}}   % parses
+   \item{\cventry{2016--2024}{Role Title}{Organization}{Location}{}{...}}  % en-dash, may not
+   ```
+
+   This applies to the **date argument only**. Keep `--` everywhere it is typographically correct in prose, for example a numeric range like `EUR 600k--1M`.
+
+2. **A bare single year gives the parser no end date.** A short contract, mandate or internship written as `\cventry{2016}` imports as a start date with nothing to close it. Use an explicit range, with months where the role ran under a year:
+
+   ```latex
+   \item{\cventry{Mar 2016 - Jul 2016}{Contract Role}{Client}{Location}{}{...}}
+   ```
+
+   Where a genuine range exists, use it even when a single year would be factually accurate - a degree written `1995` is true but imports worse than `1992-1995`. Do not invent a start date you do not have; a lone graduation year is fine, just expect it to be typed in by hand.
+
+**Add this to the step 5d checks**: after extracting the text layer, confirm every experience entry shows a start *and* an end separated by an ASCII hyphen. Because the failure is silent and invisible in the PDF, the candidate otherwise discovers it only while filling in the application form.
 
 ## Page Budget - Hard 2-Page Limit
 

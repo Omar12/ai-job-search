@@ -1,5 +1,5 @@
 ---
-framework_version: 1.0.0
+framework_version: 1.1.1
 ---
 
 # Candidate Profile
@@ -12,10 +12,19 @@ framework_version: 1.0.0
 - **Website:** https://omartinosa.dev
 - **LinkedIn:** https://linkedin.com/in/omartinez12
 - **GitHub:** https://github.com/omar12
-- **Languages:** English (native/bilingual), Spanish (native/bilingual)
 - **Status:** Employed - Engineering Manager, JPMorgan Chase (Seattle, WA)
 - **Constraints:** None on location. Open to fully remote (US), hybrid or onsite in the Seattle area, and relocation for the right role.
-- **CV language:** English
+
+### Languages
+<!-- Every language you can work in professionally, with your honest level. Used by the
+Language Gate in 04-job-evaluation.md and by job-scraper/search-queries.md's query-language
+generation. Omit any language you don't actually work in - an undeclared language is treated as
+a hard no, not a gap to smooth over. -->
+
+| Language | Level | Notes |
+|----------|-------|-------|
+| English | native/bilingual |
+| Spanish | native/bilingual |
 
 ## Education
 
