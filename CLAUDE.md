@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Omar Martinosa
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Omar Martinosa, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,70 +10,80 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
+Full structured profile: `.claude/skills/job-application-assistant/01-candidate-profile.md`
 
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
-- **Languages:** [YOUR_LANGUAGES]
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
-
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Name:** Omar Martinosa
+- **Location:** Seattle, WA, United States (no location constraint: remote, hybrid, onsite Seattle, and relocation all acceptable)
+- **Languages:** English (native/bilingual), Spanish (native/bilingual)
+- **CV language:** English
+- **Status:** Employed - Engineering Manager, JPMorgan Chase
+- **LinkedIn headline:** "Engineering Lead | Building Scalable and User-Centric Enterprise Applications"
+- **Contact:** omartinosa@gmail.com | 954.336.3265 | https://omartinosa.dev | https://linkedin.com/in/omartinez12 | https://github.com/omar12
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **BS in Interactive Media Design** (2001-2004) - Art Institute, Fort Lauderdale, FL
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Engineering Manager** (Sep 2025 - Present) - **JPMorgan Chase** (Seattle, WA)
+  - Leads a team of 8 engineers with coaching, growth plans, and performance feedback
+  - Established a new team and delivered a new product on an accelerated timeline
+  - Cut engineering capacity required for monthly releases by 50% through documented process and owned prioritization
+- **Senior Lead Product Engineer** (Sep 2014 - Sep 2025) - **JPMorgan Chase** (Seattle, WA)
+  - Built 20+ AI agents and skills for code-quality, requirements-gathering, and code-analysis workflows
+  - Launched 100+ UI features serving 70M+ customers; set standards holding 90%+ unit / 85%+ integration coverage
+  - Cut the development-to-production release cycle from two weeks to three days
+- **Frontend Developer (Contract, concurrent)** (Nov 2019 - Mar 2020) - **Sentry** (Seattle, WA)
+  - Migrated the marketing site from Jekyll to Gatsby/React in three months; 40 pages, 10 reusable components
+- **Lead Frontend Developer** (May 2006 - Jun 2014) - **AgencyTEN** (Fort Lauderdale, FL)
+  - Guided 10 developers delivering for Howard Stern, Island Def Jam, and 20+ clients
+  - Built and launched a Bacardi marketing portal across 50+ global markets
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** JavaScript/TypeScript (Node.js, ES6), React, Next.js, CSS (Sass, LESS, CSS-in-JS), HTML
+- **Secondary:** SQL/NoSQL, unit and integration testing, UX/UI design, WCAG/accessibility, product management
+- **Domain:** Customer-facing web applications at scale, enterprise/financial services UI, developer experience and tooling, digital agency delivery
+- **Software:** Claude Code, GitHub Copilot, Hermes
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **Software Product Management** - University of Washington - completed June 2017
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+- Featured tutorial, *.Net Magazine* (Aug 2010).
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- Webby Award and multiple FWA awards - agency project work (2007-2012). Team/project-level, not individual; describe it that way.
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+No formal assessment on file. Traits below are inferred from LinkedIn and CV text - see `02-behavioral-profile.md` for the labeled detail.
+- **Team-centric and user-focused** - frames engineering work in terms of customer outcomes
+- **Process-clarity bias** - repeatedly converts ambiguity into documented, adopted process
+- **Strengths:** mentoring and growing engineers, shipping customer-facing product at scale, bridging technical and product work
+- **Growth areas:** not yet recorded - needs self-assessment
+- **Thrives in:** teams where engineering quality and pragmatic delivery are both valued, with real ownership of prioritization
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Building and shipping AI agents, developer tooling, and AI-assisted workflows
+- Customer-facing product work at scale
+- Turning ambiguous process into something documented and adopted
+- Mentoring and growing engineers
+
+### Target Roles
+1. Engineering Manager / technical leadership
+2. Senior / Staff / Principal frontend or product engineer
+3. AI / agentic tooling engineer
+4. Forward Deployed Engineer (FDE)
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- AI labs: Anthropic, OpenAI, and peers
+- Developer tools: Vercel, Sentry, Linear, Stripe, GitHub
+- Big tech, Seattle: Amazon, Microsoft, Google, Meta
+- Not a closed list. These get a boost during triage; strong postings elsewhere still count.
 
 ### Deal-breakers
-<!-- Hard constraints on job search -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Employers that ban or heavily restrict AI coding tools (Claude Code, Copilot, etc.)
+- Roles dominated by on-call rotation or production support
+- Compensation below current. No numeric floor recorded; low-looking ranges get flagged, not auto-rejected.
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

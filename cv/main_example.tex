@@ -1,8 +1,7 @@
-%% Example CV - [YOUR_NAME]
+%% Master CV - Omar Martinosa
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -24,18 +23,18 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Omar Martinosa - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Omar}{Martinosa}
+\address{Seattle, WA, United States}{}{}
+\phone[mobile]{954.336.3265}
+\email{omartinosa@gmail.com}
+\extrainfo{\href{https://omartinosa.dev}{omartinosa.dev}, \href{https://linkedin.com/in/omartinez12}{LinkedIn}, \href{https://github.com/omar12}{GitHub}}
 
 \begin{document}
 
@@ -46,7 +45,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Senior software engineer and engineering leader with 20+ years designing and delivering scalable, customer-facing web applications. Built products serving more than 70 million customers and supported products generating \$200M+ in revenue. Currently leading a team of 8 engineers at JPMorgan Chase. Focused on building AI-powered applications and applying modern AI tooling, including Claude Code, to accelerate software development and create exceptional user experiences.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -56,15 +55,17 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{JavaScript \& TypeScript}: Node.js, ES6, React, Next.js, modern build tooling.
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{Frontend \& UI}: CSS (Sass, LESS, CSS-in-JS), HTML, responsive design, UX/UI design, WCAG accessibility.
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{AI-Assisted Development}: Claude Code, GitHub Copilot, Hermes. Built 20+ AI agents and skills for code-quality, requirements-gathering, and code-analysis workflows.
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Engineering Leadership}: Team management, coaching and growth plans, hiring and onboarding, mentoring lead engineers, technical training.
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Quality \& Delivery}: Unit and integration testing (90\%+/85\%+ coverage standards), coding standards, release process design, pre-release validation.
+
+\item \textbf{Product \& Communication}: Product management (UW certified), requirements refinement, prioritization, executive and stakeholder communication, technical documentation, public speaking.
 
 \end{itemize}
 
@@ -76,32 +77,48 @@
 \vspace{3pt}
 \begin{itemize}
 
-% --- Most Recent Role ---
-\item{\cventry{[YYYY--Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Engineering Manager, JPMorgan Chase ---
+\item{\cventry{2025--Present}{Engineering Manager}{JPMorgan Chase}{Seattle, WA}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item Led and developed a team of 8 software engineers through regular coaching, clear growth plans, and performance feedback.
+    \item Trained and mentored lead engineers while establishing a new team and delivering a new product on an accelerated timeline.
+    \item Reduced the engineering capacity required for monthly releases by 50\% by documenting the process, defining clear timelines, and owning feature prioritization through post-live validation.
+    \item Hired and onboarded 2 engineers, improving team capacity while maintaining a consistent interview process.
+    \item Communicated roadmap progress, risks, and tradeoffs to senior leadership and non-technical stakeholders.
+    \item Built an inclusive team culture by setting clear expectations and fostering psychological safety.
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Previous Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Senior Lead Product Engineer, JPMorgan Chase ---
+\item{\cventry{2014--2025}{Senior Lead Product Engineer}{JPMorgan Chase}{Seattle, WA}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
+    \item Built 20+ AI agents and skills with Claude Code to support code-quality, requirements-gathering, and code-analysis workflows integrated with product-development collaboration systems.
+    \item Developed and launched over 100 UI features, enhancing the user experience for more than 70 million customers.
+    \item Established coding standards that reduced complexity and enforced code quality rules, achieving over 90\% unit test coverage and over 85\% integration test coverage.
+    \item Created a workflow that reduced the development-to-production release cycle from two weeks to three days.
+    \item Led the development of a pre-release testing process, now an official step in the release program.
+    \item Led weekly technical sessions to present requirements, review pull requests, and facilitate pair programming.
 \end{itemize}}}
 
 \vspace{3pt}
 
-% --- Earlier Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+% --- Sentry (contract, concurrent) ---
+\item{\cventry{2019--2020}{Frontend Developer (Contract, concurrent)}{Sentry}{Seattle, WA}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
+    \item Migrated the marketing site from Jekyll to Gatsby and React within three months.
+    \item Converted 40 static pages to React and created 10 reusable components.
+    \item Partnered with the design team to build responsive user interfaces using modern CSS.
+\end{itemize}}}
+
+\vspace{3pt}
+
+% --- AgencyTEN ---
+\item{\cventry{2006--2014}{Lead Frontend Developer}{AgencyTEN}{Fort Lauderdale, FL}{}{\vspace{1pt}
+\begin{itemize}
+    \item Guided a team of 10 developers to consistently deliver projects for Howard Stern, Island Def Jam, and 20+ different clients.
+    \item Built and launched an online marketing portal for Bacardi across 50+ global markets.
+    \item Facilitated monthly one-hour technical training sessions for 25+ team members.
 \end{itemize}}}
 
 \end{itemize}
@@ -114,15 +131,11 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
-}}
+\item{\cventry{2017}{Certification, Software Product Management}{University of Washington}{Seattle, WA}{}{}}
 
 \vspace{3pt}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
-}}
+\item{\cventry{2001--2004}{BS, Interactive Media Design}{Art Institute}{Fort Lauderdale, FL}{}{}}
 
 \end{itemize}
 
@@ -133,27 +146,27 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
+\item English (native/bilingual), Spanish (native/bilingual).
 \end{itemize}
 
 % ============================================================
-%     PUBLICATIONS (optional)
+%     PUBLICATIONS
 % ============================================================
 
 \section{Publications}
 \vspace{1pt}
 \begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
+\item Featured tutorial, \textit{.Net Magazine} (August 2010).
 \end{itemize}
 
 % ============================================================
-%     HONORS AND AWARDS (optional)
+%     HONORS AND AWARDS
 % ============================================================
 
 \section{Honors and Awards}
 \vspace{1pt}
 \begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item{Contributor on Webby Award and FWA Award winning agency projects (2007--2012).}
 \end{itemize}
 
 % ============================================================

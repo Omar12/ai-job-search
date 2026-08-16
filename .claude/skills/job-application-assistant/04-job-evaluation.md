@@ -44,9 +44,11 @@ How well do the required/preferred skills align with the candidate's capabilitie
 | 40-59 | Partial match, significant upskilling needed |
 | 0-39 | Fundamental mismatch |
 
-**Strong match areas:** [YOUR_PRIMARY_SKILLS]
-**Moderate match areas:** [YOUR_SECONDARY_SKILLS]
-**Weak match areas:** [SKILLS_YOU_LACK]
+**Strong match areas:** JavaScript/TypeScript (Node.js, ES6), React, Next.js, CSS (Sass/LESS/CSS-in-JS), HTML, frontend architecture, unit/integration testing, engineering leadership and mentoring, AI-assisted development (Claude Code, GitHub Copilot, Hermes), AI agent and developer-tooling build-out
+
+**Moderate match areas:** Product management, SQL/NoSQL, UX/UI design, WCAG/accessibility, technical documentation, hiring and interview process, stakeholder and executive communication
+
+**Weak match areas:** Backend-heavy or distributed-systems ownership, ML/data science modeling, native mobile (iOS/Android), DevOps/infrastructure/SRE, non-JS language stacks (Java, Go, Python at depth)
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?
@@ -58,9 +60,11 @@ Does work history align with what they're looking for?
 | 40-59 | Adjacent experience, would need to make the case |
 | 0-39 | Unrelated experience |
 
-**Strong:** [YOUR_DIRECT_EXPERIENCE_DOMAINS]
-**Moderate:** [YOUR_ADJACENT_EXPERIENCE]
-**Entry-level:** [ROLES_WITH_LIMITED_EXPERIENCE]
+**Strong:** Senior/Staff/Lead frontend and product engineering; engineering management of small teams (8 engineers); customer-facing web applications at scale (70M+ customers); enterprise/financial services UI; digital agency delivery
+
+**Moderate:** Product management, developer experience / internal tooling, AI-assisted development tooling and agent building, technical program leadership
+
+**Entry-level:** Director/senior-management scope (one year as EM), ML engineering, backend service ownership, infrastructure roles
 
 ### 3. Behavioral/Culture Fit (0-100)
 Does the role and company culture match the behavioral profile?
@@ -75,10 +79,14 @@ Does the role and company culture match the behavioral profile?
 **Red flags to research:** Department disorganization, work dominated by maintenance over development, poor chemistry with leadership, culture mismatches. Check reviews, media coverage, LinkedIn connections, and network contacts for insider perspective.
 
 ### 4. Location & Logistics (Pass/Fail + Notes)
-- Within commute range: PASS
-- Remote with occasional office: PASS
-- Requires relocation: FAIL (deal-breaker)
-- Frequent international travel: FLAG (discuss with user)
+
+Location is wide open - remote, hybrid, onsite Seattle, and relocation are all acceptable.
+
+- Fully remote (US): PASS
+- Hybrid or onsite in the Seattle / Bellevue / Redmond area: PASS
+- Onsite elsewhere, requires relocation: PASS, note the city so the user can weigh it
+- Frequent travel: PASS for FDE-type roles where it is the job; FLAG otherwise
+- Outside the US or requiring a visa: FLAG (discuss with user)
 
 ### 5. Career Alignment & Motivation (0-100)
 Does this role advance career goals and contain tasks that energize?
@@ -90,20 +98,28 @@ Does this role advance career goals and contain tasks that energize?
 | 40-59 | Decent job but doesn't build toward career goals |
 | 0-39 | Dead end or backwards step |
 
-**Career goals:**
-- [YOUR_CAREER_GOAL_1]
-- [YOUR_CAREER_GOAL_2]
-- [YOUR_CAREER_GOAL_3]
+**Career goals (four accepted directions, all scored as aligned):**
+1. **Engineering Manager / technical leadership** - continue the management track started at JPMorgan Chase
+2. **Senior / Staff / Principal frontend or product engineer** - high-level IC track
+3. **AI / agentic tooling engineer** - building AI agents, developer tooling, AI-assisted workflows
+4. **Forward Deployed Engineer (FDE)** - customer-facing engineering at AI labs and technical product companies
 
-**Motivation filter:** Evaluate not just whether you *can* do the tasks, but whether the tasks will *energize* you. Consider:
-- Tasks that energize: [YOUR_ENERGIZING_TASKS]
-- Tasks that drain: [YOUR_DRAINING_TASKS]
-- Non-task factors: leadership style, department culture, company values, degree of autonomy
+A posting that fits any of these four scores well on career alignment. A posting outside all four needs a specific reason to be worth applying to.
 
-**Life situation alignment:** Consider personal constraints:
-- **Security**: [YOUR_FINANCIAL_SITUATION_CONTEXT]
-- **Flexibility**: [YOUR_SCHEDULE_CONSTRAINTS]
-- **Professional development**: [YOUR_GROWTH_PRIORITIES]
+**Motivation filter:** Evaluate not just whether the tasks are doable, but whether they will *energize*.
+- Tasks that energize: building and shipping customer-facing product; AI agent and developer-tooling work; turning ambiguous process into documented process; mentoring and growing engineers; direct customer/stakeholder contact (FDE-shaped work)
+- Tasks that drain: heavy on-call and production support; maintenance-dominated work with little new development
+- Non-task factors: leadership style, team culture, degree of autonomy over prioritization
+
+**Hard deal-breakers (fail the posting outright):**
+- **No AI tooling allowed** - employers that ban or heavily restrict Claude Code / Copilot-style tooling. Check the posting and company policy; if unstated, mark unverified rather than assuming.
+- **Heavy on-call / production support** - roles where on-call rotation or maintenance dominates the work.
+- **Pay cut below current** - no numeric floor recorded; judged case by case. Flag any posted range that looks low for the level rather than auto-filtering. If a range is absent, note it and move on.
+
+**Life situation alignment:**
+- **Security**: currently employed (Engineering Manager, JPMorgan Chase). Searching from a position of strength, so a marginal role is not worth taking.
+- **Flexibility**: no recorded schedule constraints.
+- **Professional development**: deepening AI/agentic engineering work is the active growth priority.
 
 ### 6. Salary Benchmark (Optional)
 

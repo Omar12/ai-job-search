@@ -1,6 +1,7 @@
 # Search Queries for Job Scraper
 
-<!-- SETUP: Customize these queries based on your skills, target roles, and location -->
+Configured for Omar Martinosa - Seattle, WA. Four target directions: engineering
+leadership, senior/staff frontend IC, AI/agentic tooling, and Forward Deployed Engineer.
 
 ## Installed portal CLIs (primary for `/scrape`)
 
@@ -10,66 +11,88 @@ The `site:` query templates in this file are the **WebSearch fallback** — for 
 
 ## Search Sites
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+Primary:
+- **linkedin.com/jobs** - covered by the `linkedin-search` CLI; the main source for US tech roles
+- **WebSearch fallback** against ATS boards: `boards.greenhouse.io`, `jobs.lever.co`, `jobs.ashbyhq.com`, `job-boards.greenhouse.io`
 
-Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+Secondary (company career pages via WebSearch):
+- AI labs: anthropic.com, openai.com, and peers
+- Dev tools: vercel.com, sentry.io, linear.app, stripe.com, github.com
+- Big tech, Seattle: amazon.jobs, microsoft.com/careers, google.com/about/careers, metacareers.com
+
+Company lists are a **boost signal, not a filter**. Strong postings elsewhere still count.
 
 ## Query Categories
 
-Queries are grouped by priority. Each query should be combined with your location terms (e.g. your city, region, or metro area) where the site supports it.
+Location is wide open: fully remote (US), hybrid or onsite in the Seattle area, and
+relocation are all acceptable. Run each query both with `Seattle` and with `remote`.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: AI / agentic tooling and Forward Deployed Engineer
 
-These match your strongest and most desired career direction.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
-```
-
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
-
-These match your domain expertise.
+The active growth direction, and the sharpest differentiator in the profile (20+ AI agents built).
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:boards.greenhouse.io "Forward Deployed Engineer"
+site:jobs.ashbyhq.com "Forward Deployed Engineer"
+site:jobs.lever.co "Forward Deployed Engineer" remote
+site:linkedin.com/jobs "Forward Deployed Engineer" Seattle
+site:linkedin.com/jobs "AI Engineer" TypeScript Seattle
+site:boards.greenhouse.io "Applied AI Engineer"
+site:linkedin.com/jobs "Developer Experience Engineer" AI remote
+"agentic" "TypeScript" engineer jobs remote
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
+### Priority 2: Senior / Staff frontend and product engineering
 
-Adjacent roles you could pivot into.
-
-```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
-```
-
-### Priority 4: Broader Technical / Consulting
-
-Wider net for general technical roles.
+The bulk of the record: 20 years, React/Next.js, 100+ features to 70M+ customers.
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:linkedin.com/jobs "Staff Software Engineer" React Seattle
+site:linkedin.com/jobs "Senior Software Engineer" React TypeScript Seattle
+site:linkedin.com/jobs "Principal Frontend Engineer" remote
+site:boards.greenhouse.io "Staff Frontend Engineer"
+site:jobs.lever.co "Senior Frontend Engineer" React remote
+site:jobs.ashbyhq.com "Product Engineer" TypeScript
+```
+
+### Priority 3: Engineering management and technical leadership
+
+Current track. One year of formal EM scope, so target EM rather than Senior EM or Director.
+
+```
+site:linkedin.com/jobs "Engineering Manager" frontend Seattle
+site:linkedin.com/jobs "Engineering Manager" "web" remote
+site:boards.greenhouse.io "Engineering Manager" product engineering
+site:jobs.lever.co "Engineering Manager" frontend
+site:linkedin.com/jobs "Software Engineering Manager" Seattle
+```
+
+### Priority 4: Adjacent and wider net
+
+Roles the profile supports but which are a pivot rather than a continuation.
+
+```
+site:linkedin.com/jobs "Technical Product Manager" frontend Seattle
+site:linkedin.com/jobs "Solutions Engineer" developer tools remote
+site:linkedin.com/jobs "Developer Advocate" TypeScript remote
+site:linkedin.com/jobs "Technical Program Manager" engineering Seattle
+site:boards.greenhouse.io "Solutions Architect" web
 ```
 
 ## Location Filter
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
-- [TOO_FAR_AREA] (too far)
+No commute constraint. Treat all of these as in scope:
+- Fully remote (US) - in scope
+- Seattle / Bellevue / Redmond / Kirkland - in scope, no commute limit recorded
+- Elsewhere in the US requiring relocation - in scope, note the city in the triage output
+- Outside the US or requiring a visa - flag for the user rather than including silently
+
+## Deal-breaker Filters
+
+Drop or flag during triage:
+- **Drop:** postings that ban or heavily restrict AI coding assistants
+- **Drop:** postings where on-call rotation or production support is the primary responsibility
+- **Flag:** posted compensation ranges that look low for the level. No numeric floor recorded, so surface it for the user rather than auto-rejecting. Missing range is not a flag.
 
 ## Date Filter
 
@@ -78,4 +101,5 @@ Only include jobs posted within the last 14 days, or with an application deadlin
 ## Adapting Queries
 
 If the user specifies a focus area, select queries from the matching category and also generate 2-3 custom queries for that focus. For example:
-- "/scrape [focus_area]" -> relevant category queries + custom focus-specific queries
+- "/scrape fde" -> Priority 1 queries plus custom FDE queries against specific AI labs
+- "/scrape remote" -> every category, remote variants only

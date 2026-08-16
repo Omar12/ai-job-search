@@ -14,30 +14,60 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 
 ## Ready-Made STAR Examples
 
-<!-- These are populated by /setup from your actual experience. Below are templates showing the format. -->
+<!-- None complete yet. Fill the stubs below - they are drawn from real achievements
+     in your CV, but only you know the situation, constraints, and numbers. -->
 
-### 1. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT - what was happening, what was the problem]
-**T:** [YOUR RESPONSIBILITY - what you specifically needed to do]
-**A:** [WHAT YOU DID - specific actions, tools, methods]
-**R:** [OUTCOME - measurable results, adoption, impact]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+## STAR Candidates (Complete Manually)
 
-### 2. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### Cut monthly release capacity by 50%
+**Source:** CV - Engineering Manager, JPMorgan Chase
+**What happened:** Documented the release process, defined timelines, and owned feature prioritization through post-live validation, halving the engineering capacity monthly releases required.
+**Why it matters:** Process improvement, operational efficiency, "tell me about a time you improved how your team works", stakeholder influence without authority.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
 
-### 3. [PROJECT_NAME] ([SKILL_DEMONSTRATED])
-**S:** [CONTEXT]
-**T:** [YOUR RESPONSIBILITY]
-**A:** [WHAT YOU DID]
-**R:** [OUTCOME]
-**Use for:** "[QUESTION_TYPE_1]", "[QUESTION_TYPE_2]"
+### Built 20+ AI agents and skills for engineering workflows
+**Source:** CV - Senior Lead Product Engineer, JPMorgan Chase
+**What happened:** Built AI agents and skills supporting code-quality, requirements-gathering, and code-analysis workflows, integrated with product-development collaboration systems.
+**Why it matters:** Technical initiative, AI adoption, developer experience, "tell me about something you built that nobody asked for", measuring tooling impact.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
 
-<!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
+### Migrated Sentry marketing site from Jekyll to Gatsby/React in three months
+**Source:** CV - Frontend Developer (contract), Sentry
+**What happened:** Converted 40 static pages to React and built 10 reusable components, working with the design team on responsive UI.
+**Why it matters:** Delivery under deadline, migration/legacy work, working with designers, scoping a project end to end.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Established a new team of 8 and delivered a new product on an accelerated timeline
+**Source:** CV - Engineering Manager, JPMorgan Chase
+**What happened:** Stood up a new team, trained and mentored lead engineers, hired and onboarded 2 engineers while maintaining a consistent interview process, and shipped a new product under time pressure.
+**Why it matters:** People leadership, hiring, building culture and psychological safety, "tell me about a time you built something from zero".
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Pre-release testing process adopted as an official release step
+**Source:** CV - Senior Lead Product Engineer, JPMorgan Chase
+**What happened:** Led development of a pre-release testing process that became an official step in the release program, ensuring feature stability before public deployment. Related: cut the development-to-production cycle from two weeks to three days.
+**Why it matters:** Quality ownership, influencing beyond your own team, driving org-wide adoption of a practice.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
 
 ## Common Tough Questions
 

@@ -115,12 +115,13 @@ When the role sits outside your home domain, **lead with the domain-transfer arg
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Engineering Manager / technical leadership roles:**
+> Engineering leader with 20+ years building customer-facing web applications and Staff-level technical depth in JavaScript, TypeScript, and React. Currently leading a team of 8 engineers at JPMorgan Chase, where I established a new team, delivered a new product on an accelerated timeline, and cut the engineering capacity required for monthly releases by 50% through clear process and owned prioritization. I hire, coach, and grow engineers while staying close enough to the code to unblock delivery. Looking to bring that combination to [TEAM/PRODUCT AT COMPANY].
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Senior / Staff frontend or product engineering roles:**
+> Senior software engineer with 20+ years designing and shipping scalable, customer-facing web applications in JavaScript, TypeScript, React, and Next.js. At JPMorgan Chase I launched 100+ UI features to more than 70 million customers, set coding standards that held 90%+ unit and 85%+ integration test coverage, and cut the development-to-production release cycle from two weeks to three days. Recently focused on AI-assisted development, including 20+ AI agents and skills built with Claude Code to support code-quality and requirements workflows. Bringing that to [SPECIFIC PROBLEM IN POSTING].
+
+Both statements draw only on facts recorded in `01-candidate-profile.md`. Swap the bracketed closer for something specific to the posting; do not ship a statement with a bracket left in it.
 
 Statements labeled *[Used for: <company>_<role>]* were extracted from archived application drafts by `/setup` Path A. They are **phrasing references, never fact sources**: when drafting from one, every factual claim still comes from `01-candidate-profile.md` - a past tailored draft does not vouch for its own accuracy.
 
