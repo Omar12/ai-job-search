@@ -150,8 +150,8 @@ export const detail = defineCommand({
   handler: async ({ positional, flags, signal }) => {
     if (signal.aborted) return
 
-    const id = positional[0] as string | undefined
-    if (!id) {
+    const rawId = positional[0] as string | undefined
+    if (!rawId) {
       writeError("Job ad ID is required", "MISSING_REQUIRED")
       process.exit(1)
     }
